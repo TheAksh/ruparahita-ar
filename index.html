@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vijayraj Ruparahita – View in AR</title>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <style>
+    html, body { margin: 0; height: 100%; font-family: system-ui, sans-serif; background: #f4efe9; }
+    model-viewer { width: 100%; height: 100%; --poster-color: transparent; }
+    #ar-button {
+      position: absolute; left: 50%; bottom: 32px; transform: translateX(-50%);
+      padding: 14px 28px; border: 0; border-radius: 28px; font-size: 17px; font-weight: 600;
+      background: #5a3d2b; color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.25);
+    }
+    #title { position: absolute; z-index: 1; pointer-events: none; top: 16px; left: 0; right: 0; text-align: center; color: #5a3d2b; }
+    #title h1 { margin: 0; font-size: 20px; }
+    #title p { margin: 4px 0 0; font-size: 13px; opacity: .8; }
+    #no-ar { display: none; position: absolute; bottom: 36px; width: 100%; text-align: center; font-size: 14px; color: #5a3d2b; }
+  </style>
+</head>
+<body>
+  <div id="title">
+    <h1>Vijayraj Ruparahita</h1>
+    <p>2 &amp; 3 BHK Luxurious Flats · Prem Nagar, Solapur</p>
+  </div>
+  <model-viewer
+    src="building_birds.glb"
+    ios-src="building_birds.usdz"
+    alt="3D model of Vijayraj Ruparahita apartment building with birds"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    ar-placement="floor"
+    ar-scale="auto"
+    camera-controls
+    touch-action="pan-y"
+    autoplay
+    shadow-intensity="1"
+    exposure="1"
+    camera-orbit="35deg 75deg 1.6m"
+    auto-rotate
+    auto-rotate-delay="3000">
+    <button slot="ar-button" id="ar-button">View in your space</button>
+    <div id="no-ar">Open this page on a phone to view it in AR.</div>
+  </model-viewer>
+  <script>
+    const mv = document.querySelector('model-viewer');
+    mv.addEventListener('load', () => {
+      if (!mv.canActivateAR) document.getElementById('no-ar').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
