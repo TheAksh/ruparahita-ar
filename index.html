@@ -16,7 +16,10 @@
     #title { position: absolute; z-index: 1; pointer-events: none; top: 16px; left: 0; right: 0; text-align: center; color: #5a3d2b; }
     #title h1 { margin: 0; font-size: 20px; }
     #title p { margin: 4px 0 0; font-size: 13px; opacity: .8; }
-    #no-ar { display: none; position: absolute; bottom: 36px; width: 100%; text-align: center; font-size: 14px; color: #5a3d2b; }
+    #no-ar { display: none; position: absolute; bottom: 60px; width: 100%; text-align: center; font-size: 14px; color: #5a3d2b; }
+    #credits { position: absolute; bottom: 4px; left: 8px; right: 8px; text-align: center; font-size: 9px; line-height: 1.3; color: #8a7a6e; }
+    #credits a { color: inherit; }
+    #ar-button { bottom: 44px; }
   </style>
 </head>
 <body>
@@ -44,6 +47,12 @@
     <button slot="ar-button" id="ar-button">View in your space</button>
     <div id="no-ar">Open this page on a phone to view it in AR.</div>
   </model-viewer>
+  <div id="credits">
+    Trees: <a href="https://sketchfab.com/3d-models/ginkgo-tree-autumnfall-b3313ffda86a46a8b16a83de1bdb155a">Ginkgo Tree Autumn/Fall</a> by <a href="https://sketchfab.com/PuzzledPapaya">PuzzledPapaya</a>,
+    <a href="https://sketchfab.com/3d-models/tree-low-poly-lowpoly-73201f05280d48dcb10ed4ca362d69f8">Tree low poly lowpoly</a> by <a href="https://sketchfab.com/00amza">00amza</a>,
+    <a href="https://sketchfab.com/3d-models/low-poly-tree-scene-free-89daa5e21f0d4f08a59dba0d566e88bd">Low Poly Tree Scene Free</a> by <a href="https://sketchfab.com/Nicholas01">Nicholas-3D</a>
+    · <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, resized for this scene
+  </div>
   <script>
     const mv = document.querySelector('model-viewer');
     mv.addEventListener('load', () => {
